@@ -1,0 +1,95 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "created_by": [],
+  "episode_run_time": [
+  25
+  ],
+  "first_air_date": "1989-12-24",
+  "genres": [],
+  "homepage": "",
+  "id": 23433,
+  "in_production": true,
+  "languages": [],
+  "last_air_date": "1994-03-21",
+  "last_episode_to_air": {
+  "air_date": "1994-03-21",
+  "episode_number": 12,
+  "id": 624645,
+  "name": "Wie wat waar",
+  "overview": "",
+  "production_code": "",
+  "season_number": 5,
+  "still_path": null,
+  "vote_average": 0,
+  "vote_count": 0
+  },
+  "name": "We zijn weer thuis",
+  "next_episode_to_air": null,
+  "networks": [],
+  "number_of_episodes": 47,
+  "number_of_seasons": 5,
+  "origin_country": [
+  "NL"
+  ],
+  "original_language": "en",
+  "original_name": "We zijn weer thuis",
+  "overview": "We zijn weer thuis is the last of the television series that Wim T. Schippers made for the VPRO. Written by Schippers and directed by him and Ellen Jens, the dramady series ran from 1989 to 1995.",
+  "popularity": 1.306,
+  "poster_path": null,
+  "production_companies": [],
+  "production_countries": [],
+  "seasons": [
+  {
+  "air_date": "1989-12-24",
+  "episode_count": 6,
+  "id": 33424,
+  "name": "Season 1",
+  "overview": "",
+  "poster_path": null,
+  "season_number": 1
+  },
+  {
+  "air_date": "1990-10-07",
+  "episode_count": 6,
+  "id": 33425,
+  "name": "Season 2",
+  "overview": "",
+  "poster_path": null,
+  "season_number": 2
+  },
+  {
+  "air_date": "1991-10-06",
+  "episode_count": 12,
+  "id": 33426,
+  "name": "Season 3",
+  "overview": "",
+  "poster_path": null,
+  "season_number": 3
+  },
+  {
+  "air_date": "1992-12-14",
+  "episode_count": 11,
+  "id": 33427,
+  "name": "Season 4",
+  "overview": "",
+  "poster_path": null,
+  "season_number": 4
+  },
+  {
+  "air_date": "1994-01-03",
+  "episode_count": 12,
+  "id": 33428,
+  "name": "Season 5",
+  "overview": "",
+  "poster_path": null,
+  "season_number": 5
+  }
+  ],
+  "spoken_languages": [],
+  "status": "Ended",
+  "tagline": "",
+  "type": "Scripted",
+  "vote_average": 8.5,
+  "vote_count": 1
+  }
