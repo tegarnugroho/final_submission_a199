@@ -36,9 +36,6 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Watchlist'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Consumer<WatchlistTvSeriesNotifier>(
@@ -48,7 +45,9 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
                 child: CircularProgressIndicator(),
               );
             } else if (data.watchlistStateTvSeries == RequestState.Loaded) {
-              return ListView.builder(
+              return data.watchlistTvSeries.isEmpty ?  const Center(
+                child: Text('You don\'t have any Watchlist!'),
+              ) :   ListView.builder(
                 itemBuilder: (context, index) {
                   final tvSeries = data.watchlistTvSeries[index];
                   return TvSeriesCard(tvSeries);

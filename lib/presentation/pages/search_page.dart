@@ -44,7 +44,7 @@ class SearchPage extends StatelessWidget {
                   );
                 } else if (data.state == RequestState.Loaded) {
                   final result = data.searchResult;
-                  return Expanded(
+                  return result.isEmpty ? const Center(child: Text('Nothing found!'),) : Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.all(8),
                       itemBuilder: (context, index) {

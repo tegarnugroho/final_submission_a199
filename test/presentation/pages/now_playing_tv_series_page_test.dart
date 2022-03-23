@@ -8,7 +8,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
-import 'bow_playing_tv_series_page_test.mocks.dart';
+import 'now_playing_tv_series_page_test.mocks.dart';
 
 
 @GenerateMocks([NowPlayingTvSeriesNotifier])

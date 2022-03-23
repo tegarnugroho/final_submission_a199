@@ -36,9 +36,6 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Watchlist'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Consumer<WatchlistMovieNotifier>(
@@ -48,7 +45,9 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
                 child: CircularProgressIndicator(),
               );
             } else if (data.watchlistState == RequestState.Loaded) {
-              return ListView.builder(
+              return data.watchlistMovies.isEmpty ? const Center(
+                child: Text('You don\'t have any Watchlist!'),
+              ) :  ListView.builder(
                 itemBuilder: (context, index) {
                   final movie = data.watchlistMovies[index];
                   return MovieCard(movie);

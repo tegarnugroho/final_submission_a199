@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 import 'about_page.dart';
 import 'search_tv_series_page.dart';
 import 'top_rated_tv_series_page.dart';
-import 'watchlist_tv_series_page.dart';
+import 'watchlist_page.dart';
 
 class HomeTvSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/home-tv-series';
@@ -63,7 +63,7 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
               leading: Icon(Icons.movie),
               title: Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistTvSeriesPage.ROUTE_NAME);
+                Navigator.pushNamed(context, WatchList.ROUTE_NAME);
               },
             ),
             ListTile(
