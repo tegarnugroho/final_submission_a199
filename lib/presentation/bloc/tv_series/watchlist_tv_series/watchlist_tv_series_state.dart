@@ -12,12 +12,12 @@ class WatchlistTvSeriesInitial extends WatchlistTvSeriesState {}
 class WatchlistTvSeriesLoading extends WatchlistTvSeriesState {}
 
 class WatchlistTvSeriesSuccess extends WatchlistTvSeriesState {
-  final List<TvSeries> data;
+  final List<TvSeries> watchlistTvSeries;
 
-  WatchlistTvSeriesSuccess(this.data);
+  WatchlistTvSeriesSuccess(this.watchlistTvSeries);
 
   @override
-  List<Object> get props => [...data];
+  List<Object> get props => [...watchlistTvSeries];
 }
 
 class WatchlistTvSeriesError extends WatchlistTvSeriesState {
