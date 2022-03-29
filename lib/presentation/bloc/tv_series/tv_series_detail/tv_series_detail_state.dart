@@ -21,12 +21,12 @@ class TvSeriesDetailError extends TvSeriesDetailState {
 }
 
 class TvSeriesDetailSuccess extends TvSeriesDetailState {
-  final TvSeriesDetail result;
+  final TvSeriesDetail detail;
   final List<TvSeries> recommendations;
 
-  const TvSeriesDetailSuccess(this.result, {this.recommendations = const []}
+  const TvSeriesDetailSuccess(this.detail, {this.recommendations = const []}
   );
 
   @override
-  List<Object> get props => [result, recommendations];
+  List<Object> get props => [detail, recommendations];
 }
