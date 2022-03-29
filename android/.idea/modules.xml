@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1391920313/android.firebase_analytics.iml" filepath="$PROJECT_DIR$/.idea/modules/-1391920313/android.firebase_analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/565091006/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/565091006/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-806050152/android.firebase_crashlytics.iml" filepath="$PROJECT_DIR$/.idea/modules/-806050152/android.firebase_crashlytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-972728846/android.path_provider_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-972728846/android.path_provider_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/625347739/android.sqflite.iml" filepath="$PROJECT_DIR$/.idea/modules/625347739/android.sqflite.iml" />
+    </modules>
+  </component>
+</project>
