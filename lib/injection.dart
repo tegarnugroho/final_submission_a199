@@ -28,7 +28,6 @@ import 'package:ditonton/domain/usecases/search_movies.dart';
 import 'package:ditonton/domain/usecases/search_tv_series.dart';
 import 'package:ditonton/presentation/bloc/movies/movies_detail/movies_detail_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/movies_search/movies_search_bloc.dart';
-import 'package:ditonton/presentation/bloc/movies/now_playing_movies/now_playing_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/popular_movies/popular_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/top_rated_movies/top_rated_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/watchlist_movies/watchlist_movies_bloc.dart';
@@ -66,7 +65,6 @@ void init() {
   locator.registerFactory(() => TvSeriesDetailBloc(locator(), locator()));
   locator.registerFactory(() => TvSeriesSearchBloc(locator()));
   locator.registerFactory(() => WatchlistTvSeriesBloc(locator()));
-  locator.registerFactory(() => NowPlayingMoviesBloc(locator()));
   locator.registerFactory(() => PopularMoviesBloc(locator()));
   locator.registerFactory(() => TopRatedMoviesBloc(locator()));
   locator.registerFactory(() => MoviesSearchBloc(locator()));

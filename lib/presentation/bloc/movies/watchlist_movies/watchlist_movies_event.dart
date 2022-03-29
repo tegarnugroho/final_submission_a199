@@ -8,4 +8,4 @@ abstract class WatchlistMoviesEvent extends Equatable {
 }
 
 
-class OnFetchWatchlistTvSeries extends WatchlistMoviesEvent {}
+class OnFetchWatchlistMovies extends WatchlistMoviesEvent {}

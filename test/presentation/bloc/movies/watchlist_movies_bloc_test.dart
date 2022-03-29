@@ -32,7 +32,7 @@ void main() {
 
           return bloc;
         },
-        act: (WatchlistMoviesBloc bloc) => bloc.add(OnFetchWatchlistTvSeries()),
+        act: (WatchlistMoviesBloc bloc) => bloc.add(OnFetchWatchlistMovies()),
         wait: const Duration(milliseconds: 500),
         expect: () => [
               WatchlistMoviesLoading(),
@@ -49,7 +49,7 @@ void main() {
 
           return bloc;
         },
-        act: (WatchlistMoviesBloc bloc) => bloc.add(OnFetchWatchlistTvSeries()),
+        act: (WatchlistMoviesBloc bloc) => bloc.add(OnFetchWatchlistMovies()),
         wait: const Duration(milliseconds: 500),
         expect: () => [
               WatchlistMoviesLoading(),
