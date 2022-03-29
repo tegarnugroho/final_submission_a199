@@ -21,12 +21,12 @@ class MoviesDetailError extends MoviesDetailState {
 }
 
 class MoviesDetailSuccess extends MoviesDetailState {
-  final MovieDetail result;
+  final MovieDetail detail;
   final List<Movie> recommendations;
 
-  const MoviesDetailSuccess(this.result, {this.recommendations = const []}
+  const MoviesDetailSuccess(this.detail, {this.recommendations = const []}
   );
 
   @override
-  List<Object> get props => [result, recommendations];
+  List<Object> get props => [detail, recommendations];
 }

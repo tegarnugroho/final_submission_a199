@@ -18,6 +18,15 @@ class AddToWatchlistMovies extends WatchlistMoviesEvent {
   List<Object> get props => [detail];
 }
 
+class FetchWatchlistStatus extends WatchlistMoviesEvent {
+  final int id;
+
+  FetchWatchlistStatus(this.id);
+
+  @override
+  List<Object> get props => [id];
+}
+
 class RemoveFromWatchlistMovies extends WatchlistMoviesEvent {
   final MovieDetail detail;
 

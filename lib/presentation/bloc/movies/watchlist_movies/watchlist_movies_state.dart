@@ -2,7 +2,7 @@ part of 'watchlist_movies_bloc.dart';
 
 abstract class WatchlistMoviesState extends Equatable {
   const WatchlistMoviesState();
-  
+
   @override
   List<Object> get props => [];
 }
@@ -29,15 +29,14 @@ class WatchlistMoviesError extends WatchlistMoviesState {
   List<Object> get props => [message];
 }
 
-class WatchlistSuccess extends WatchlistMoviesState {
+class WatchlistMoviesMessage extends WatchlistMoviesState {
   final String message;
 
-  const WatchlistSuccess(this.message);
+  const WatchlistMoviesMessage(this.message);
 
   @override
   List<Object> get props => [message];
 }
-
 
 class WatchlistError extends WatchlistMoviesState {
   final String message;
@@ -46,4 +45,13 @@ class WatchlistError extends WatchlistMoviesState {
 
   @override
   List<Object> get props => [message];
+}
+
+class IsAddedToWatchlistMovies extends WatchlistMoviesState {
+  final bool isAdded;
+
+  IsAddedToWatchlistMovies(this.isAdded);
+
+  @override
+  List<Object> get props => [isAdded];
 }

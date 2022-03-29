@@ -26,9 +26,11 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
   @override
   void initState() {
     super.initState();
+    Future.microtask(() {
       context.read<NowPlayingTvSeriesBloc>().add(OnFetchNowPlayingTvSeries());
       context.read<PopularTvSeriesBloc>().add(OnFetchPopularTvSeries());
       context.read<TopRatedTvSeriesBloc>().add(OnFetchTopRatedTvSeries());
+    });
   }
 
   @override
@@ -48,7 +50,8 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
               leading: Icon(Icons.movie),
               title: Text('Movies'),
               onTap: () {
-                Navigator.pushReplacementNamed(context, HomeMoviePage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(
+                    context, HomeMoviePage.ROUTE_NAME);
               },
             ),
             ListTile(
@@ -94,8 +97,8 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
             children: [
               _buildSubHeading(
                 title: 'Now Playing',
-                onTap: () =>
-                    Navigator.pushNamed(context, NowPlayingTvSeriesPage.ROUTE_NAME),
+                onTap: () => Navigator.pushNamed(
+                    context, NowPlayingTvSeriesPage.ROUTE_NAME),
               ),
               BlocBuilder<NowPlayingTvSeriesBloc, NowPlayingTvSeriesState>(
                   builder: (context, state) {
@@ -116,8 +119,8 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
               }),
               _buildSubHeading(
                 title: 'Popular',
-                onTap: () =>
-                    Navigator.pushNamed(context, PopularTvSeriesPage.ROUTE_NAME),
+                onTap: () => Navigator.pushNamed(
+                    context, PopularTvSeriesPage.ROUTE_NAME),
               ),
               BlocBuilder<PopularTvSeriesBloc, PopularTvSeriesState>(
                   builder: (context, state) {
@@ -138,8 +141,8 @@ class _HomeTvSeriesPageState extends State<HomeTvSeriesPage> {
               }),
               _buildSubHeading(
                 title: 'Top Rated',
-                onTap: () =>
-                    Navigator.pushNamed(context, TopRatedTvSeriesPage.ROUTE_NAME),
+                onTap: () => Navigator.pushNamed(
+                    context, TopRatedTvSeriesPage.ROUTE_NAME),
               ),
               BlocBuilder<TopRatedTvSeriesBloc, TopRatedTvSeriesState>(
                   builder: (context, state) {

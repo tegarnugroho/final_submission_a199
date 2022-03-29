@@ -80,10 +80,49 @@ void main() {
   });
 
   group(
+    'get watchlist status test cases',
+    () {
+      blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
+        'should be true when the watchlist status is also true',
+        build: () {
+          when(getWatchListStatus.execute(testMovieDetail.id))
+              .thenAnswer((_) async => true);
+          return bloc;
+        },
+        act: (bloc) => bloc.add(FetchWatchlistStatus(testMovieDetail.id)),
+        expect: () => [
+          IsAddedToWatchlistMovies(true),
+        ],
+        verify: (bloc) {
+          verify(getWatchListStatus.execute(testMovieDetail.id));
+          return FetchWatchlistStatus(testMovieDetail.id).props;
+        },
+      );
+
+      blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
+        'should be false when the watchlist status is also false',
+        build: () {
+          when(getWatchListStatus.execute(testMovieDetail.id))
+              .thenAnswer((_) async => false);
+          return bloc;
+        },
+        act: (bloc) => bloc.add(FetchWatchlistStatus(testMovieDetail.id)),
+        expect: () => [
+          IsAddedToWatchlistMovies(false),
+        ],
+        verify: (bloc) {
+          verify(getWatchListStatus.execute(testMovieDetail.id));
+          return FetchWatchlistStatus(testMovieDetail.id).props;
+        },
+      );
+    },
+  );
+
+  group(
     'Watchlist Add & Remove',
     () {
       blocTest(
-        'should update watchlist status when adding watchlist succeeded',
+        'should update watchlist when adding watchlist succeeded',
         build: () {
           when(saveWatchlist.execute(testMovieDetail))
               .thenAnswer((_) async => const Right('Added to Watchlist'));
@@ -92,7 +131,7 @@ void main() {
         act: (WatchlistMoviesBloc bloc) =>
             bloc.add(AddToWatchlistMovies(testMovieDetail)),
         expect: () => [
-          WatchlistSuccess('Added to Watchlist'),
+          WatchlistMoviesMessage('Added to Watchlist'),
         ],
         verify: (bloc) {
           verify(saveWatchlist.execute(testMovieDetail));
@@ -121,7 +160,7 @@ void main() {
       );
 
       blocTest(
-        'should update watchlist status when remove watchlist succeeded',
+        'should update watchlist when remove watchlist succeeded',
         build: () {
           when(removeWatchlist.execute(testMovieDetail))
               .thenAnswer((_) async => const Right('Removed'));
@@ -130,7 +169,7 @@ void main() {
         act: (WatchlistMoviesBloc bloc) =>
             bloc.add(RemoveFromWatchlistMovies(testMovieDetail)),
         expect: () => [
-          WatchlistSuccess('Removed'),
+          WatchlistMoviesMessage('Removed'),
         ],
         verify: (bloc) {
           verify(removeWatchlist.execute(testMovieDetail));
@@ -139,7 +178,7 @@ void main() {
       );
 
       blocTest(
-        'should update watchlist status when remove watchlist failed',
+        'should update watchlist when remove watchlist failed',
         build: () {
           when(removeWatchlist.execute(testMovieDetail))
               .thenAnswer((_) async => const Right('Removed'));
@@ -148,7 +187,7 @@ void main() {
         act: (WatchlistMoviesBloc bloc) =>
             bloc.add(RemoveFromWatchlistMovies(testMovieDetail)),
         expect: () => [
-          WatchlistSuccess('Removed'),
+          WatchlistMoviesMessage('Removed'),
         ],
         verify: (bloc) {
           verify(removeWatchlist.execute(testMovieDetail));

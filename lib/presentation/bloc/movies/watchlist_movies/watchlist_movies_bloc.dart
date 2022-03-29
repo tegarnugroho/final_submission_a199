@@ -35,7 +35,7 @@ class WatchlistMoviesBloc
 
       result.fold(
         (failure) => emit(WatchlistError(failure.message)),
-        (successMessage) => emit(WatchlistSuccess(successMessage)),
+        (successMessage) => emit(WatchlistMoviesMessage(successMessage)),
       );
     });
 
@@ -44,8 +44,16 @@ class WatchlistMoviesBloc
 
       result.fold(
         (failure) => emit(WatchlistError(failure.message)),
-        (successMessage) => emit(WatchlistSuccess(successMessage)),
+        (successMessage) => emit(WatchlistMoviesMessage(successMessage)),
       );
+    });
+
+    on<FetchWatchlistStatus>((event, emit) async {
+      final id = event.id;
+
+      final result = await getWatchListStatus.execute(id);
+
+      emit(IsAddedToWatchlistMovies(result));
     });
   }
 }
