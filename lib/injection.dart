@@ -65,7 +65,12 @@ void init() {
   locator.registerFactory(() => TopRatedTvSeriesBloc(locator()));
   locator.registerFactory(() => TvSeriesDetailBloc(locator(), locator()));
   locator.registerFactory(() => TvSeriesSearchBloc(locator()));
-  locator.registerFactory(() => WatchlistTvSeriesBloc(locator()));
+  locator.registerFactory(() => WatchlistTvSeriesBloc(
+    getWatchListStatus: locator(),
+    getWatchlist: locator(),
+    removeFromWatchlist: locator(),
+    saveWatchlist: locator(),
+  ));
   locator.registerFactory(() => NowPlayingMoviesBloc(locator()));
   locator.registerFactory(() => PopularMoviesBloc(locator()));
   locator.registerFactory(() => TopRatedMoviesBloc(locator()));

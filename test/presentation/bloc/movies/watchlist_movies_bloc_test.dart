@@ -82,14 +82,14 @@ void main() {
   group(
     'get watchlist status test cases',
     () {
-      blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
+      blocTest(
         'should be true when the watchlist status is also true',
         build: () {
           when(getWatchListStatus.execute(testMovieDetail.id))
               .thenAnswer((_) async => true);
           return bloc;
         },
-        act: (bloc) => bloc.add(FetchWatchlistStatus(testMovieDetail.id)),
+        act: (WatchlistMoviesBloc bloc) => bloc.add(FetchWatchlistStatus(testMovieDetail.id)),
         expect: () => [
           IsAddedToWatchlistMovies(true),
         ],
@@ -99,14 +99,14 @@ void main() {
         },
       );
 
-      blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
+      blocTest(
         'should be false when the watchlist status is also false',
         build: () {
           when(getWatchListStatus.execute(testMovieDetail.id))
               .thenAnswer((_) async => false);
           return bloc;
         },
-        act: (bloc) => bloc.add(FetchWatchlistStatus(testMovieDetail.id)),
+        act: (WatchlistMoviesBloc bloc) => bloc.add(FetchWatchlistStatus(testMovieDetail.id)),
         expect: () => [
           IsAddedToWatchlistMovies(false),
         ],
@@ -119,7 +119,7 @@ void main() {
   );
 
   group(
-    'Watchlist Add & Remove',
+    'Watchlist Movies Add & Remove',
     () {
       blocTest(
         'should update watchlist when adding watchlist succeeded',

@@ -28,3 +28,31 @@ class WatchlistTvSeriesError extends WatchlistTvSeriesState {
   @override
   List<Object> get props => [message];
 }
+
+class WatchlistTvSeriesMessage extends WatchlistTvSeriesState {
+  final String message;
+
+  const WatchlistTvSeriesMessage(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+class WatchlistError extends WatchlistTvSeriesState {
+  final String message;
+
+  const WatchlistError(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+class IsAddedToWatchlistTvSeries extends WatchlistTvSeriesState {
+  final bool isAdded;
+
+  IsAddedToWatchlistTvSeries(this.isAdded);
+
+  @override
+  List<Object> get props => [isAdded];
+}
+
