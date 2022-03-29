@@ -36,27 +36,27 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<WatchlistMoviesBloc, WatchlistMoviesState>(
-          builder: (context, data) {
-            if (data is WatchlistMoviesLoading) {
+          builder: (context, state) {
+            if (state is WatchlistMoviesLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data is WatchlistMoviesSuccess) {
-              return data.watchlistMovies.isEmpty
+            } else if (state is WatchlistMoviesSuccess) {
+              return state.watchlistMovies.isEmpty
                   ? const Center(
                       child: Text('You don\'t have any Watchlist!'),
                     )
                   : ListView.builder(
                       itemBuilder: (context, index) {
-                        final movie = data.watchlistMovies[index];
+                        final movie = state.watchlistMovies[index];
                         return MovieCard(movie);
                       },
-                      itemCount: data.watchlistMovies.length,
+                      itemCount: state.watchlistMovies.length,
                     );
-            } else if (data is WatchlistMoviesError) {
+            } else if (state is WatchlistMoviesError) {
               return Center(
                 key: Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
             } else {
               return Container();

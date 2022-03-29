@@ -37,13 +37,13 @@ class SearchPage extends StatelessWidget {
               style: kHeading6,
             ),
             BlocBuilder<MoviesSearchBloc, MoviesSearchState>(
-              builder: (context, data) {
-                if (data is MoviesSearchLoading) {
+              builder: (context, state) {
+                if (state is MoviesSearchLoading) {
                   return Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (data is MoviesSearchSuccess) {
-                  final result = data.movies;
+                } else if (state is MoviesSearchSuccess) {
+                  final result = state.movies;
                   return result.isEmpty
                       ? const Center(
                           child: Text('Nothing found!'),
@@ -52,16 +52,16 @@ class SearchPage extends StatelessWidget {
                           child: ListView.builder(
                             padding: const EdgeInsets.all(8),
                             itemBuilder: (context, index) {
-                              final movie = data.movies[index];
+                              final movie = state.movies[index];
                               return MovieCard(movie);
                             },
                             itemCount: result.length,
                           ),
                         );
-                } else if (data is MoviesSearchError) {
+                } else if (state is MoviesSearchError) {
                   return Center(
                     key: Key('error_message'),
-                    child: Text(data.message),
+                    child: Text(state.message),
                   );
                 } else {
                   return Expanded(

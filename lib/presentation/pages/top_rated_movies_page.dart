@@ -27,23 +27,23 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<TopRatedMoviesBloc, TopRatedMoviesState>(
-          builder: (context, data) {
-            if (data is TopRatedMoviesLoading) {
+          builder: (context, state) {
+            if (state is TopRatedMoviesLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data is TopRatedMoviesSuccess) {
+            } else if (state is TopRatedMoviesSuccess) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final movie = data.movies[index];
+                  final movie = state.movies[index];
                   return MovieCard(movie);
                 },
-                itemCount: data.movies.length,
+                itemCount: state.movies.length,
               );
-            } else if (data is TopRatedMoviesError) {
+            } else if (state is TopRatedMoviesError) {
               return Center(
                 key: Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
             } else {
               return Container();

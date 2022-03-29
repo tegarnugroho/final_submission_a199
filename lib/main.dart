@@ -2,6 +2,7 @@ import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/bloc/movies/movies_detail/movies_detail_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/movies_search/movies_search_bloc.dart';
+import 'package:ditonton/presentation/bloc/movies/now_playing_movies/now_playing_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/popular_movies/popular_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/top_rated_movies/top_rated_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/watchlist_movies/watchlist_movies_bloc.dart';
@@ -101,6 +102,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => di.locator<TvSeriesDetailBloc>()),
         BlocProvider(create: (_) => di.locator<TvSeriesSearchBloc>()),
         BlocProvider(create: (_) => di.locator<WatchlistTvSeriesBloc>()),
+        BlocProvider(create: (_) => di.locator<NowPlayingMoviesBloc>()),
         BlocProvider(create: (_) => di.locator<PopularMoviesBloc>()),
         BlocProvider(create: (_) => di.locator<TopRatedMoviesBloc>()),
         BlocProvider(create: (_) => di.locator<MoviesSearchBloc>()),
