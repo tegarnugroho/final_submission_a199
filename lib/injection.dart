@@ -70,7 +70,12 @@ void init() {
   locator.registerFactory(() => PopularMoviesBloc(locator()));
   locator.registerFactory(() => TopRatedMoviesBloc(locator()));
   locator.registerFactory(() => MoviesSearchBloc(locator()));
-  locator.registerFactory(() => WatchlistMoviesBloc(locator()));
+  locator.registerFactory(() => WatchlistMoviesBloc(
+    getWatchListStatus: locator(),
+    getWatchlist: locator(),
+    removeFromWatchlist: locator(),
+    saveWatchlist: locator(),
+  ));
   locator.registerFactory(() => MoviesDetailBloc(locator(), locator()));
 
   // provider movies

@@ -28,3 +28,22 @@ class WatchlistMoviesError extends WatchlistMoviesState {
   @override
   List<Object> get props => [message];
 }
+
+class WatchlistSuccess extends WatchlistMoviesState {
+  final String message;
+
+  const WatchlistSuccess(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+
+class WatchlistError extends WatchlistMoviesState {
+  final String message;
+
+  const WatchlistError(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
