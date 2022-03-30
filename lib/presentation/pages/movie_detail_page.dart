@@ -51,7 +51,12 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               ),
             );
           } else if (state is MoviesDetailError) {
-            return Text(state.message);
+            return Center(
+              child: Text(
+                state.message,
+                key: Key('error_message'),
+              ),
+            );
           } else {
             return Container();
           }

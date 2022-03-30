@@ -1,67 +1,89 @@
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/tv_series.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:ditonton/presentation/bloc/tv_series/now_playing_tv_series/now_playing_tv_series_bloc.dart';
 import 'package:ditonton/presentation/pages/now_playing_tv_series_page.dart';
-import 'package:ditonton/presentation/provider/now_playing_tv_series_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'package:provider/provider.dart';
+import 'package:mocktail/mocktail.dart';
 
-import 'now_playing_tv_series_page_test.mocks.dart';
+import '../../dummy_data/dummy_objects.dart';
 
+class MockNowPlayingTvSeriesBloc
+    extends MockBloc<NowPlayingTvSeriesEvent, NowPlayingTvSeriesState>
+    implements NowPlayingTvSeriesBloc {}
 
-@GenerateMocks([NowPlayingTvSeriesNotifier])
+class NowPlayingTvSeriesEventFake extends Fake
+    implements NowPlayingTvSeriesEvent {}
+
+class NowPlayingTvSeriesStateFake extends Fake
+    implements NowPlayingTvSeriesState {}
+
 void main() {
-  late MockNowPlayingTvSeriesNotifier mockNotifier;
+  late MockNowPlayingTvSeriesBloc mockNowPlayingTvSeriesBloc;
+  setUpAll(() {
+    registerFallbackValue(NowPlayingTvSeriesEventFake());
+    registerFallbackValue(NowPlayingTvSeriesStateFake());
+  });
 
   setUp(() {
-    mockNotifier = MockNowPlayingTvSeriesNotifier();
+    mockNowPlayingTvSeriesBloc = MockNowPlayingTvSeriesBloc();
   });
 
   Widget _makeTestableWidget(Widget body) {
-    return ChangeNotifierProvider<NowPlayingTvSeriesNotifier>.value(
-      value: mockNotifier,
+    return BlocProvider<NowPlayingTvSeriesBloc>.value(
+      value: mockNowPlayingTvSeriesBloc,
       child: MaterialApp(
         home: body,
       ),
     );
   }
 
-  testWidgets('Page should display progress bar when loading',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loading);
+  group('Now Playing Tv Series Page:', () {
+    testWidgets('page should nothing when empty', (WidgetTester tester) async {
+      when(() => mockNowPlayingTvSeriesBloc.state)
+          .thenReturn(NowPlayingTvSeriesInitial());
+      await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
 
-    final progressFinder = find.byType(CircularProgressIndicator);
-    final centerFinder = find.byType(Center);
+      final progressBarFinder = find.byType(CircularProgressIndicator);
+      expect(progressBarFinder, findsNothing);
+    });
 
-    await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
+    testWidgets('Page should display progress bar when loading',
+        (WidgetTester tester) async {
+      when(() => mockNowPlayingTvSeriesBloc.state)
+          .thenReturn(NowPlayingTvSeriesLoading());
 
-    expect(centerFinder, findsOneWidget);
-    expect(progressFinder, findsOneWidget);
-  });
+      final progressFinder = find.byType(CircularProgressIndicator);
+      final centerFinder = find.byType(Center);
 
-  testWidgets('Page should display when data is loaded',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loaded);
-    when(mockNotifier.tvSeries).thenReturn(<TvSeries>[]);
+      await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
 
-    final listViewFinder = find.byType(ListView);
+      expect(centerFinder, findsOneWidget);
+      expect(progressFinder, findsOneWidget);
+    });
 
-    await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
+    testWidgets('Page should display when data is loaded',
+        (WidgetTester tester) async {
+      when(() => mockNowPlayingTvSeriesBloc.state)
+          .thenReturn(NowPlayingTvSeriesSuccess(testTvSeriesList));
 
-    expect(listViewFinder, findsOneWidget);
-  });
+      final listViewFinder = find.byType(ListView);
 
-  testWidgets('Page should display text with message when Error',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Error);
-    when(mockNotifier.message).thenReturn('Error message');
+      await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
 
-    final textFinder = find.byKey(Key('error_message'));
+      expect(listViewFinder, findsOneWidget);
+    });
 
-    await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
+    testWidgets('Page should display text with message when Error',
+        (WidgetTester tester) async {
+      when(() => mockNowPlayingTvSeriesBloc.state)
+          .thenReturn(NowPlayingTvSeriesError('Error'));
 
-    expect(textFinder, findsOneWidget);
+      final textFinder = find.byKey(Key('error_message'));
+
+      await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
+
+      expect(textFinder, findsOneWidget);
+    });
   });
 }

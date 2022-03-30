@@ -53,7 +53,12 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
               ),
             );
           } else if (state is TvSeriesDetailError) {
-            return Text(state.message);
+            return Center(
+              child: Text(
+                state.message,
+                key: Key('error_message'),
+              ),
+            );
           } else {
             return Container();
           }
