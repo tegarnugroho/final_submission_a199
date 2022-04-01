@@ -1,4 +1,5 @@
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/bloc/movies/movies_detail/movies_detail_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies/movies_search/movies_search_bloc.dart';
@@ -38,6 +39,7 @@ import 'package:ditonton/injection.dart' as di;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await SSLPinning.init();
   di.init();
   runApp(MyApp());
 }
