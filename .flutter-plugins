@@ -1,11 +1,11 @@
 # This is a generated file; do not edit or check into version control.
-firebase_core=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.13.1/
-firebase_core_web=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.1/
-firebase_crashlytics=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_crashlytics-2.5.3/
-path_provider=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.9/
-path_provider_android=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.11/
-path_provider_ios=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.7/
-path_provider_linux=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.5/
-path_provider_macos=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.5/
-path_provider_windows=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.5/
-sqflite=/Users/macbookpro/Development/start/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-2.0.2/
+cloud_firestore_web=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\cloud_firestore_web-2.8.10\\
+firebase_core=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_core-1.24.0\\
+firebase_core_web=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_core_web-1.7.3\\
+firebase_crashlytics=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\firebase_crashlytics-2.9.0\\
+path_provider=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider-2.0.13\\
+path_provider_android=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_android-2.0.23\\
+path_provider_foundation=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_foundation-2.1.2\\
+path_provider_linux=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_linux-2.1.9\\
+path_provider_windows=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_windows-2.1.4\\
+sqflite=C:\\Users\\tegar\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\sqflite-2.2.5\\
